@@ -1,8 +1,4 @@
-
 FROM tomcat
-
-EXPOSE 8080
-
 RUN apt-get update
 RUN apt-get install maven -y
 RUN git clone https://github.com/efsavage/hello-world-war.git
