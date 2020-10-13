@@ -1,0 +1,20 @@
+version: '2'
+services:
+  build:
+    build:
+      context: /home/Docker
+      dockerfile: Dockerfile
+    volumes:
+      - Docker:/home/Docker/hello-world-war/target/
+
+  production:
+    image: tomcat:8-alpine
+    ports:
+      - "8080:8080"
+    volumes:
+      - Docker:/usr/local/tomcat/webapps/
+    depends_on:
+      - build
+
+volumes:
+  Docker:
